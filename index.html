@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Christmas Treats & Lists!</title>
+    <style>
+        body {
+            background-color: #0c3823;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .snowflake {
+            color: #fff;
+            font-size: 1em;
+            position: fixed;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .survey {
+            background-color: #c41e3a;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        .lists {
+            background-color: #c41e3a;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        .recipes {
+            background-color: #c41e3a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin: 5px 0;
+            padding: 5px;
+        }
+
+        h1, h2 {
+            color: #fff;
+            text-align: center;
+        }
+
+        .recipe {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Snow Effect -->
+    <script>
+        function createSnowflakes() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(snowflake);
+            setTimeout(() => snowflake.remove(), 5000);
+        }
+        setInterval(createSnowflakes, 100);
+
+        // Generate random names for naughty and nice lists
+        function generateNames() {
+            const allNames = ['John', 'Mary', 'Peter', 'Sarah', 'Michael', 'Emma', 'David', 'Lisa', 'James', 'Anna'];
+            const shuffled = [...allNames].sort(() => 0.5 - Math.random());
+            return {
+                naughty: shuffled.slice(0, 5),
+                nice: shuffled.slice(5, 10)
+            };
+        }
+
+        // Update lists daily
+        const today = new Date().toDateString();
+        const lists = generateNames();
+    </script>
+
+    <div class="container">
+        <div class="survey">
+            <h2>Holiday Visitor Survey</h2>
+            <form>
+                <input type="text" placeholder="First Name" required><br>
+                <input type="text" placeholder="Last Name" required><br>
+                <input type="email" placeholder="Email Address" required><br>
+                <input type="text" placeholder="Hometown" required><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div class="lists">
+            <h2>Santa's Lists</h2>
+            <div id="naughtyList">
+                <h3>Naughty List</h3>
+                <script>
+                    document.write('<ul>');
+                    lists.naughty.forEach(name => {
+                        document.write(`<li>${name}</li>`);
+                    });
+                    document.write('</ul>');
+                </script>
+            </div>
+            <div id="niceList">
+                <h3>Nice List</h3>
+                <script>
+                    document.write('<ul>');
+                    lists.nice.forEach(name => {
+                        document.write(`<li>${name}</li>`);
+                    });
+                    document.write('</ul>');
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="recipes">
+        <h1>Holiday Recipes</h1>
+        
+        <div class="recipe">
+            <h2>Homemade Eggnog</h2>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>6 egg yolks</li>
+                <li>3/4 cup sugar</li>
+                <li>2 cups whole milk</li>
+                <li>1 cup heavy cream</li>
+                <li>1/2 teaspoon nutmeg</li>
+                <li>1/2 teaspoon vanilla extract</li>
+            </ul>
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Whisk egg yolks and sugar until pale</li>
+                <li>Heat milk and cream until steaming</li>
+                <li>Slowly temper egg mixture with hot milk</li>
+                <li>Cook until thickened</li>
+                <li>Add nutmeg and vanilla</li>
+                <li>Chill and serve</li>
+            </ol>
+        </div>
+
+        <div class="recipe">
+            <h2>Homemade Hot Chocolate</h2>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>4 cups whole milk</li>
+                <li>1/4 cup cocoa powder</li>
+                <li>1/4 cup sugar</li>
+                <li>1/2 cup chocolate chips</li>
+                <li>1/4 teaspoon vanilla extract</li>
+            </ul>
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Heat milk in saucepan</li>
+                <li>Whisk in cocoa and sugar</li>
+                <li>Add chocolate chips and stir until melted</li>
+                <li>Add vanilla</li>
+                <li>Serve hot with marshmallows</li>
+            </ol>
+        </div>
+
+        <div class="recipe">
+            <h2>Gingerbread Cookies</h2>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>3 cups flour</li>
+                <li>1 1/2 tsp ginger</li>
+                <li>1 1/2 tsp cinnamon</li>
+                <li>1/4 tsp nutmeg</li>
+                <li>3/4 cup butter</li>
+                <li>3/4 cup brown sugar</li>
+                <li>1 egg</li>
+                <li>1/2 cup molasses</li>
+            </ul>
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Mix dry ingredients</li>
+                <li>Cream butter and sugar</li>
+                <li>Add egg and molasses</li>
+                <li>Combine wet and dry ingredients</li>
+                <li>Chill dough</li>
+                <li>Roll out and cut shapes</li>
+                <li>Bake at 350°F for 10-12 minutes</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
