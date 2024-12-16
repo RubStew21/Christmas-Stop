@@ -7,23 +7,18 @@
         body {
             background-color: #0c3823;
             color: white;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            position: relative;
-            overflow-x: hidden;
         }
 
-        .snowflake {
-            color: #fff;
-            font-size: 1em;
-            position: fixed;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-100vh); }
-            100% { transform: translateY(100vh); }
+        .header {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            background-color: #c41e3a;
+            padding: 20px;
+            border: 2px solid white;
         }
 
         .container {
@@ -34,75 +29,47 @@
         .survey {
             background-color: #c41e3a;
             padding: 20px;
-            border-radius: 10px;
             width: 300px;
+            border: 2px solid white;
         }
 
         .lists {
             background-color: #c41e3a;
             padding: 20px;
-            border-radius: 10px;
             width: 300px;
+            border: 2px solid white;
         }
 
         .recipes {
             background-color: #c41e3a;
             padding: 20px;
-            border-radius: 10px;
             margin-top: 20px;
+            border: 2px solid white;
         }
 
-        input, textarea {
-            width: 100%;
+        input {
+            width: 90%;
             margin: 5px 0;
             padding: 5px;
-        }
-
-        h1, h2 {
-            color: #fff;
-            text-align: center;
         }
 
         .recipe {
             margin: 20px 0;
             padding: 15px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
+            border: 1px solid white;
         }
     </style>
 </head>
 <body>
-    <!-- Snow Effect -->
-    <script>
-        function createSnowflakes() {
-            const snowflake = document.createElement('div');
-            snowflake.classList.add('snowflake');
-            snowflake.innerHTML = '❄';
-            snowflake.style.left = Math.random() * 100 + 'vw';
-            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-            document.body.appendChild(snowflake);
-            setTimeout(() => snowflake.remove(), 5000);
-        }
-        setInterval(createSnowflakes, 100);
-
-        // Generate random names for naughty and nice lists
-        function generateNames() {
-            const allNames = ['John', 'Mary', 'Peter', 'Sarah', 'Michael', 'Emma', 'David', 'Lisa', 'James', 'Anna'];
-            const shuffled = [...allNames].sort(() => 0.5 - Math.random());
-            return {
-                naughty: shuffled.slice(0, 5),
-                nice: shuffled.slice(5, 10)
-            };
-        }
-
-        // Update lists daily
-        const today = new Date().toDateString();
-        const lists = generateNames();
-    </script>
+    <div class="header">
+        🎄 Merry Christmas! 🎄
+        <br>
+        ⛄ Welcome to Our Holiday Treats Page! ⛄
+    </div>
 
     <div class="container">
         <div class="survey">
-            <h2>Holiday Visitor Survey</h2>
+            <h2>🎅 Holiday Visitor Survey</h2>
             <form>
                 <input type="text" placeholder="First Name" required><br>
                 <input type="text" placeholder="Last Name" required><br>
@@ -113,35 +80,31 @@
         </div>
 
         <div class="lists">
-            <h2>Santa's Lists</h2>
-            <div id="naughtyList">
-                <h3>Naughty List</h3>
-                <script>
-                    document.write('<ul>');
-                    lists.naughty.forEach(name => {
-                        document.write(`<li>${name}</li>`);
-                    });
-                    document.write('</ul>');
-                </script>
-            </div>
-            <div id="niceList">
-                <h3>Nice List</h3>
-                <script>
-                    document.write('<ul>');
-                    lists.nice.forEach(name => {
-                        document.write(`<li>${name}</li>`);
-                    });
-                    document.write('</ul>');
-                </script>
-            </div>
+            <h2>📜 Santa's Lists</h2>
+            <h3>Naughty List:</h3>
+            <ul>
+                <li>Tommy</li>
+                <li>Sarah</li>
+                <li>Michael</li>
+                <li>Jessica</li>
+                <li>David</li>
+            </ul>
+            <h3>Nice List:</h3>
+            <ul>
+                <li>Emma</li>
+                <li>James</li>
+                <li>Sophie</li>
+                <li>William</li>
+                <li>Lucy</li>
+            </ul>
         </div>
     </div>
 
     <div class="recipes">
-        <h1>Holiday Recipes</h1>
+        <h1>🎄 Holiday Recipes 🎄</h1>
         
         <div class="recipe">
-            <h2>Homemade Eggnog</h2>
+            <h2>🥛 Homemade Eggnog</h2>
             <h3>Ingredients:</h3>
             <ul>
                 <li>6 egg yolks</li>
@@ -163,7 +126,7 @@
         </div>
 
         <div class="recipe">
-            <h2>Homemade Hot Chocolate</h2>
+            <h2>☕ Homemade Hot Chocolate</h2>
             <h3>Ingredients:</h3>
             <ul>
                 <li>4 cups whole milk</li>
@@ -183,7 +146,7 @@
         </div>
 
         <div class="recipe">
-            <h2>Gingerbread Cookies</h2>
+            <h2>🍪 Gingerbread Cookies</h2>
             <h3>Ingredients:</h3>
             <ul>
                 <li>3 cups flour</li>
